@@ -1,0 +1,4 @@
+# 배포에서 제외 — 원본(대용량 미사용 자산) 및 구버전 산출물
+input/_original
+input/og-image.png
+nawadri.html

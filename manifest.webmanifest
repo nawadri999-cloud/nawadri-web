@@ -1,0 +1,17 @@
+{
+  "name": "나와드리 — 나의 소중한 여행 기록장",
+  "short_name": "나와드리",
+  "description": "친구들과 함께 짠 일정, 나눠 낸 비용, 각자 찍은 사진 — 한 앱에서 모아 우리만의 추억 지도로 남겨요.",
+  "lang": "ko",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ece7df",
+  "theme_color": "#ece7df",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

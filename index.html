@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- 본문 렌더 전에 js 클래스 부착: JS 동작 시에만 reveal 활성화(html.js). JS 미실행 시 콘텐츠 항상 노출 -->
+<script>document.documentElement.classList.add("js");</script>
+<title data-i18n="meta.title">나와드리 — 나의 소중한 여행 기록장</title>
+<meta name="description" data-i18n-content="meta.desc" content="친구들과 함께 짠 일정, 나눠 낸 비용, 각자 찍은 사진 — 따로 놀던 모든 걸 한 앱에서 모아 우리만의 추억 지도로 남겨요. 2026년 8월 출시 예정." />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#ece7df" />
+<!-- Favicon: 인라인 SVG 마스코트(별도 파일 요청 없음 → 404 방지) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cpath d='M150 47a27 27 0 0 1 46 10a27 27 0 0 1 34 31a29 29 0 0 1 22 41a26 26 0 0 1-3 46a28 28 0 0 1-18 42a28 28 0 0 1-36 30a26 26 0 0 1-46 9a26 26 0 0 1-46-8a29 29 0 0 1-34-32a26 26 0 0 1-23-40a27 27 0 0 1 1-47a26 26 0 0 1 21-42a27 27 0 0 1 38-26a29 29 0 0 1 44-14Z' fill='%23E7E36A'/%3E%3Cg fill='%2316161b'%3E%3Cellipse cx='124' cy='162' rx='10' ry='13'/%3E%3Cellipse cx='176' cy='162' rx='10' ry='13'/%3E%3C/g%3E%3Cpath d='M138 192q12 9 24 0' fill='none' stroke='%2316161b' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E" />
+<!-- Open Graph / Twitter (배포 시 og:url·twitter 도메인을 실제 주소로 교체 권장) -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="나와드리" />
+<meta property="og:title" data-i18n-content="meta.title" content="나와드리 — 나의 소중한 여행 기록장" />
+<meta property="og:description" data-i18n-content="meta.desc" content="친구들과 함께 짠 일정, 나눠 낸 비용, 각자 찍은 사진 — 따로 놀던 모든 걸 한 앱에서 모아 우리만의 추억 지도로 남겨요. 2026년 8월 출시 예정." />
+<meta property="og:image" content="input/og-image.jpg" />
+<meta property="og:locale" content="ko_KR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" data-i18n-content="meta.title" content="나와드리 — 나의 소중한 여행 기록장" />
+<meta name="twitter:description" data-i18n-content="meta.desc" content="친구들과 함께 짠 일정, 나눠 낸 비용, 각자 찍은 사진 — 따로 놀던 모든 걸 한 앱에서 모아 우리만의 추억 지도로 남겨요. 2026년 8월 출시 예정." />
+<meta name="twitter:image" content="input/og-image.jpg" />
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+<div class="nd-root">
+<div class="nd-page">
+
+  <!-- satin grain -->
+  <div class="nd-grain" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header class="nd-nav">
+    <div class="nd-nav-inner">
+      <a class="nd-brand" href="#top">
+        <svg viewBox="0 0 300 300" width="34" height="34" class="nd-logo">
+          <path d="M 150.00 47.01 A 27.48 27.48 0 0 1 195.74 57.02 A 26.52 26.52 0 0 1 230.17 88.07 A 28.87 28.87 0 0 1 252.02 128.72 A 26.28 26.28 0 0 1 249.29 174.66 A 28.19 28.19 0 0 1 231.69 217.14 A 28.46 28.46 0 0 1 195.62 246.73 A 26.41 26.41 0 0 1 150.00 255.78 A 25.56 25.56 0 0 1 103.96 247.60 A 28.70 28.70 0 0 1 69.79 215.97 A 26.15 26.15 0 0 1 47.19 175.47 A 26.70 26.70 0 0 1 47.39 128.58 A 26.00 26.00 0 0 1 68.04 86.64 A 27.03 27.03 0 0 1 105.97 60.58 A 29.22 29.22 0 0 1 150.00 47.01 Z" fill="#E7E36A"></path>
+          <g fill="#16161b"><ellipse cx="124" cy="162" rx="10" ry="13"></ellipse><ellipse cx="176" cy="162" rx="10" ry="13"></ellipse></g>
+          <path d="M138 192 Q150 201 162 192" fill="none" stroke="#16161b" stroke-width="5" stroke-linecap="round"></path>
+        </svg>
+        <span class="nd-brand-name" data-i18n="brand.name">나와드리</span>
+      </a>
+      <nav class="nd-nav-links">
+        <a href="#feat-plan" data-i18n="nav.features">기능</a>
+        <a href="#feat-split" data-i18n="nav.split">정산</a>
+        <a href="#feat-map" data-i18n="nav.map">추억 지도</a>
+        <a href="#feat-now" data-i18n="nav.now">추천</a>
+        <a href="#feat-goods" data-i18n="nav.goods">굿즈</a>
+        <!-- 언어 선택 (한국어 / English / 日本語) -->
+        <div class="nd-lang">
+          <button type="button" class="nd-lang-btn" aria-haspopup="true" aria-expanded="false" aria-controls="nd-lang-menu">
+            <span class="nd-lang-current">한국어</span>
+            <span class="nd-lang-caret" aria-hidden="true">▾</span>
+          </button>
+          <div class="nd-lang-menu" id="nd-lang-menu" role="menu">
+            <button type="button" role="menuitem" data-lang="ko" class="is-active">한국어</button>
+            <button type="button" role="menuitem" data-lang="en">English</button>
+            <button type="button" role="menuitem" data-lang="ja">日本語</button>
+          </div>
+        </div>
+        <a href="#cta" class="nd-nav-cta" data-i18n="nav.notify">출시 알림</a>
+      </nav>
+      <button class="nd-hamburger" type="button" aria-label="메뉴 열기" data-i18n-aria-label="nav.menuOpen" aria-expanded="false" aria-controls="nd-mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nd-mobile-menu" id="nd-mobile-menu">
+      <a href="#feat-plan" data-i18n="nav.features">기능</a>
+      <a href="#feat-split" data-i18n="nav.split">정산</a>
+      <a href="#feat-map" data-i18n="nav.map">추억 지도</a>
+      <a href="#feat-now" data-i18n="nav.now">추천</a>
+      <a href="#feat-goods" data-i18n="nav.goods">굿즈</a>
+      <div class="nd-mobile-lang">
+        <button type="button" data-lang="ko" class="is-active">한국어</button>
+        <button type="button" data-lang="en">English</button>
+        <button type="button" data-lang="ja">日本語</button>
+      </div>
+      <a href="#cta" class="nd-mobile-cta" data-i18n="nav.notify">출시 알림</a>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       섹션 1 · 히어로 (풀스크린, 슬로건 중앙 + 마스코트 스테이지)
+       ============================================================ -->
+  <section class="nd-section nd-hero2" id="top">
+    <!-- 배경 오브 (기존 자산 재사용) -->
+    <div class="nd-orb nd-orb--1"><div class="nd-orb-sheen"></div></div>
+    <div class="nd-orb nd-orb--2"><div class="nd-orb-sheen"></div></div>
+    <div class="nd-orb nd-orb--3"><div class="nd-orb-sheen"></div></div>
+
+    <div class="nd-hero2-inner nd-reveal">
+      <!-- ▼▼▼ 마스코트(F2) 스테이지 ▼▼▼  (슬로건 바로 위 — 배지와 겹치지 않게 흐름 배치)
+           추후 CustomPainter "떨어지는 마스코트" 애니메이션 교체용 컨테이너.
+           지금은 앨범 블록에서 옮겨온 정적 F2 SVG를 placeholder로 배치.
+           화면 전체를 덮는 낙하 애니메이션이 필요하면 이 컨테이너를
+           position:absolute; inset:0 으로 바꿔 풀스크린 레이어로 전환하면 됨. -->
+      <div id="mascot-stage" class="nd-mascot-stage" aria-hidden="true">
+        <svg viewBox="0 0 300 300" width="168" height="168" class="nd-mascot-static nd-wobble">
+          <path d="M 150.00 47.01 A 27.48 27.48 0 0 1 195.74 57.02 A 26.52 26.52 0 0 1 230.17 88.07 A 28.87 28.87 0 0 1 252.02 128.72 A 26.28 26.28 0 0 1 249.29 174.66 A 28.19 28.19 0 0 1 231.69 217.14 A 28.46 28.46 0 0 1 195.62 246.73 A 26.41 26.41 0 0 1 150.00 255.78 A 25.56 25.56 0 0 1 103.96 247.60 A 28.70 28.70 0 0 1 69.79 215.97 A 26.15 26.15 0 0 1 47.19 175.47 A 26.70 26.70 0 0 1 47.39 128.58 A 26.00 26.00 0 0 1 68.04 86.64 A 27.03 27.03 0 0 1 105.97 60.58 A 29.22 29.22 0 0 1 150.00 47.01 Z" fill="#E7E36A"></path>
+          <g fill="#16161b"><ellipse cx="124" cy="162" rx="10" ry="13"></ellipse><ellipse cx="176" cy="162" rx="10" ry="13"></ellipse></g>
+          <path d="M138 192 Q150 201 162 192" fill="none" stroke="#16161b" stroke-width="5" stroke-linecap="round"></path>
+        </svg>
+      </div>
+      <!-- ▲▲▲ 마스코트 스테이지 끝 ▲▲▲ -->
+
+      <div class="nd-badge">
+        <span class="nd-badge-dot"></span>
+        <span data-i18n="hero.badge">2026년 8월 출시 예정</span>
+      </div>
+      <div class="nd-eyebrow" data-i18n="hero.eyebrow">나의 소중한 여행 기록장</div>
+      <h1 class="nd-h1 nd-hero2-title" data-i18n="hero.title">여행의 모든 순간을<br />나와드리로 연결하다</h1>
+      <p class="nd-lead nd-hero2-lead" data-i18n="hero.lead">함께 짠 일정도, 나눠 낸 비용도, 각자 찍은 사진도<br />흩어진 추억을 한 곳에 모아요.</p>
+
+      <div class="nd-hero2-cta">
+        <form class="nd-emailbar" data-signup>
+          <input type="email" name="email" placeholder="이메일 주소" data-i18n-placeholder="email.placeholder" required />
+          <button type="submit" data-i18n="email.submit">출시 알림 받기</button>
+        </form>
+        <!-- 앱 스토어 자리 (출시 전 placeholder 버튼) -->
+        <div class="nd-store-row">
+          <button type="button" class="nd-store-btn" disabled>
+            <span class="nd-store-cap nd-mono" data-i18n="store.soon">COMING SOON</span>
+            <span class="nd-store-name"> App Store</span>
+          </button>
+          <button type="button" class="nd-store-btn" disabled>
+            <span class="nd-store-cap nd-mono" data-i18n="store.soon">COMING SOON</span>
+            <span class="nd-store-name">▶ Google Play</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <a href="#feat-plan" class="nd-scroll-hint" aria-label="다음 섹션으로" data-i18n-aria-label="a11y.nextSection"><span>↓</span></a>
+  </section>
+
+  <!-- ============================================================
+       섹션 2 · 협업 여행 일정 (텍스트 좌 / 목업 우)
+       ============================================================ -->
+  <section class="nd-section nd-feat" id="feat-plan">
+    <div class="nd-feat-inner nd-reveal">
+      <div class="nd-feat-text">
+        <div class="nd-pill-accent nd-feat-cat" data-i18n="plan.cat">협업 일정</div>
+        <h2 class="nd-h2 nd-feat-title" data-i18n="plan.title">함께 짜는<br />여행 계획</h2>
+        <p class="nd-lead nd-feat-desc" data-i18n="plan.desc">친구를 초대하면 일정이 실시간으로 같이 채워져요.<br class="br-desk" />누가 뭘 정했는지 한눈에, 지도 위 동선까지 깔끔하게.</p>
+        <div class="nd-chips nd-feat-chips">
+          <span class="nd-chip" data-i18n="plan.chip1">실시간 공동 편집</span>
+          <span class="nd-chip" data-i18n="plan.chip2">지도 동선 정리</span>
+        </div>
+      </div>
+      <div class="nd-feat-visual">
+        <div class="nd-phone nd-float">
+          <div class="nd-phone-notch"></div>
+          <div class="nd-screen nd-screen--app">
+            <!-- 협업 여행 일정 화면 (친구 추가·일정 짜기) -->
+            <img class="nd-screen-shot" src="input/앱%20사진/친구%20추가%20일정짜기.png" alt="함께 짜는 여행 일정 화면" data-i18n-alt="plan.shot" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       섹션 3 · 자동 정산 (텍스트 우 / 목업 좌 — 좌우 반전)
+       ============================================================ -->
+  <section class="nd-section nd-feat nd-feat--reverse" id="feat-split">
+    <div class="nd-feat-inner nd-reveal">
+      <div class="nd-feat-text">
+        <div class="nd-pill-accent nd-feat-cat" data-i18n="split.cat">자동 정산</div>
+        <h2 class="nd-h2 nd-feat-title" data-i18n="split.title">찰칵 한 번에<br />자동 정산</h2>
+        <p class="nd-lead nd-feat-desc" data-i18n="split.desc">영수증만 찍으면 OCR이 금액을 읽고, 다중 통화 환율까지<br class="br-desk" />반영해 1/N로 딱 나눠드려요. 계산기 꺼내는 시간은 이제 안녕.</p>
+        <div class="nd-chips nd-feat-chips">
+          <span class="nd-chip" data-i18n="split.chip1">OCR 스캔</span>
+          <span class="nd-chip" data-i18n="split.chip2">다중 통화</span>
+          <span class="nd-chip" data-i18n="split.chip3">1/N 자동</span>
+        </div>
+      </div>
+      <div class="nd-feat-visual">
+        <div class="nd-phone nd-float">
+          <div class="nd-phone-notch"></div>
+          <div class="nd-screen nd-screen--app">
+            <!-- 자동 정산 화면 -->
+            <img class="nd-screen-shot" src="input/앱%20사진/정산사진.png" alt="찰칵 한 번에 자동 정산 화면" data-i18n-alt="split.shot" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       섹션 4 · 추억 지도 (시그니처 강조 — surface 배경 + 오브 글로우)
+       ============================================================ -->
+  <section class="nd-section nd-feat nd-feat--signature" id="feat-map">
+    <div class="nd-sig-orb nd-sig-orb--a"></div>
+    <div class="nd-sig-orb nd-sig-orb--b"></div>
+    <div class="nd-feat-inner nd-reveal">
+      <div class="nd-feat-text">
+        <div class="nd-pill-accent nd-feat-cat" data-i18n="map.cat">나만의 지도</div>
+        <h2 class="nd-h2 nd-feat-title" data-i18n="map.title">지도 위에 펼쳐지는<br />우리의 여행</h2>
+        <p class="nd-lead nd-feat-desc" data-i18n="map.desc">사진과 이동 경로가 지도에 그대로 찍혀요. 어디서 무얼 했는지, 우리 여행이 한 장의 지도로 남아요.</p>
+        <div class="nd-tags nd-feat-chips">
+          <div class="nd-tag"><span class="nd-tag-dot" style="background:var(--nd-orb1b);"></span> <span data-i18n="map.tag1">사진 핀</span></div>
+          <div class="nd-tag"><span class="nd-tag-dot" style="background:var(--nd-orb2b);"></span> <span data-i18n="map.tag2">이동 경로</span></div>
+        </div>
+      </div>
+      <div class="nd-feat-visual">
+        <div class="nd-phone nd-float">
+          <div class="nd-phone-notch"></div>
+          <div class="nd-screen nd-screen--map">
+            <!-- 추억 지도 화면 -->
+            <img class="nd-screen-shot" src="input/앱%20사진/지도사진.png" alt="지도 위에 펼쳐지는 추억 지도 화면" data-i18n-alt="map.shot" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       섹션 5 · 나와드리 now (AI 추천 — 텍스트 우 / 목업 좌, 좌우 반전)
+       지난 여행 데이터(일정·영수증·사진 메타)를 학습해 다음 여행을 추천
+       ============================================================ -->
+  <section class="nd-section nd-feat nd-feat--reverse" id="feat-now">
+    <div class="nd-feat-inner nd-reveal">
+      <div class="nd-feat-text">
+        <div class="nd-pill-accent nd-feat-cat" data-i18n="now.cat">나와드리 now</div>
+        <h2 class="nd-h2 nd-feat-title" data-i18n="now.title">다녀온 여행이<br />다음 여행이 되도록</h2>
+        <p class="nd-lead nd-feat-desc" data-i18n="now.desc">지난 여행에 남긴 일정·영수증·사진이 차곡차곡 쌓여 당신의 취향이 돼요. 나와드리가 그 취향을 읽고, 다음에 떠날 곳을 골라드려요.</p>
+        <div class="nd-chips nd-feat-chips">
+          <span class="nd-chip" data-i18n="now.chip1">취향 학습</span>
+          <span class="nd-chip" data-i18n="now.chip2">다음 여행지 추천</span>
+        </div>
+      </div>
+      <div class="nd-feat-visual">
+        <div class="nd-phone nd-float">
+          <div class="nd-phone-notch"></div>
+          <div class="nd-screen nd-screen--rec">
+            <!-- 나와드리 now 추천 화면 -->
+            <img class="nd-screen-shot" src="input/앱%20사진/나와드리%20나우.png" alt="나와드리 now 취향 추천 화면" data-i18n-alt="now.shot" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       섹션 6 · 사진 굿즈 (애플 스토어식 가로 캐러셀 — 앱이 아닌 실물)
+       ============================================================ -->
+  <section class="nd-section nd-goods" id="feat-goods">
+    <div class="nd-goods-inner nd-reveal">
+      <!-- 헤더 (좌측 정렬) -->
+      <div class="nd-goods-head">
+        <div class="nd-pill-accent nd-feat-cat" data-i18n="goods.cat">굿즈</div>
+        <h2 class="nd-h2 nd-feat-title nd-goods-title" data-i18n="goods.title">추억을<br />손에 잡히게</h2>
+        <p class="nd-lead nd-feat-desc nd-goods-desc" data-i18n="goods.desc">화면 속 사진을 실물로. 여행이 끝나면 손에 쥐어지는 한 권, 한 컷으로 남겨요.</p>
+      </div>
+
+      <!-- 캐러셀 -->
+      <div class="nd-carousel">
+        <button type="button" class="nd-carousel-nav nd-carousel-prev" aria-label="이전" data-i18n-aria-label="a11y.prev" data-dir="-1">‹</button>
+        <div class="nd-carousel-track" tabindex="0">
+          <!-- 카드: 흰 배경 · 기존 시트론 소프트 그림자 · 무테두리 재사용 -->
+          <article class="nd-good-card">
+            <div class="nd-good-body">
+              <div class="nd-pill-accent nd-good-label">BOOK</div>
+              <h3 class="nd-good-title" data-i18n="good1.title">포토북</h3>
+              <p class="nd-good-desc" data-i18n="good1.desc">여행 한 권으로 완성</p>
+              <div class="nd-good-meta" data-i18n="good1.meta">하드커버 · 24p~</div>
+            </div>
+            <div class="nd-good-image">
+              <img class="nd-good-img" src="input/굿즈-포토북.jpg" alt="포토북 굿즈" data-i18n-alt="good1.alt" loading="lazy" />
+            </div>
+          </article>
+
+          <article class="nd-good-card">
+            <div class="nd-good-body">
+              <div class="nd-pill-accent nd-good-label">FILM</div>
+              <h3 class="nd-good-title" data-i18n="good2.title">필름</h3>
+              <p class="nd-good-desc" data-i18n="good2.desc">그날의 색을 그대로</p>
+              <div class="nd-good-meta" data-i18n="good2.meta">36컷 · 현상 포함</div>
+            </div>
+            <div class="nd-good-image">
+              <img class="nd-good-img" src="input/굿즈-필름.jpg" alt="필름 굿즈" data-i18n-alt="good2.alt" loading="lazy" />
+            </div>
+          </article>
+
+          <article class="nd-good-card">
+            <div class="nd-good-body">
+              <div class="nd-pill-accent nd-good-label">INSTANT</div>
+              <h3 class="nd-good-title" data-i18n="good3.title">폴라로이드</h3>
+              <p class="nd-good-desc" data-i18n="good3.desc">순간을 즉석에서</p>
+              <div class="nd-good-meta" data-i18n="good3.meta">8장 세트</div>
+            </div>
+            <div class="nd-good-image">
+              <img class="nd-good-img" src="input/굿즈-폴라로이드.jpg" alt="폴라로이드 굿즈" data-i18n-alt="good3.alt" loading="lazy" />
+            </div>
+          </article>
+
+        </div>
+        <button type="button" class="nd-carousel-nav nd-carousel-next" aria-label="다음" data-i18n-aria-label="a11y.next" data-dir="1">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       섹션 6 · 출시 CTA (기존 블록 재사용)
+       ============================================================ -->
+  <section class="nd-section nd-cta-section" id="cta">
+    <div class="nd-cta nd-reveal">
+      <div class="nd-cta-orb nd-cta-orb--a"></div>
+      <div class="nd-cta-orb nd-cta-orb--b"></div>
+      <div class="nd-cta-inner">
+        <div class="nd-cta-text">
+          <h2 class="nd-h2 nd-cta-h" data-i18n="cta.title">여행 떠나기 전에,<br />먼저 만나요</h2>
+          <p class="nd-cta-sub" data-i18n="cta.sub">2026년 8월, 가장 먼저 소식 받아보세요.</p>
+        </div>
+        <div class="nd-cta-form">
+          <form class="nd-emailbar nd-emailbar--light" data-signup>
+            <input type="email" name="email" placeholder="이메일 주소" data-i18n-placeholder="email.placeholder" required />
+            <button type="submit" class="nd-btn-dark" data-i18n="cta.submit">알림 받기</button>
+          </form>
+          <div class="nd-cta-note" data-i18n="cta.note">또는 <a class="nd-cta-link" href="https://instagram.com/nawadri" target="_blank" rel="noopener noreferrer">@nawadri</a> 팔로우</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="nd-footer">
+    <div class="nd-footer-inner">
+      <div class="nd-brand">
+        <svg viewBox="0 0 300 300" width="30" height="30" class="nd-logo">
+          <path d="M 150.00 47.01 A 27.48 27.48 0 0 1 195.74 57.02 A 26.52 26.52 0 0 1 230.17 88.07 A 28.87 28.87 0 0 1 252.02 128.72 A 26.28 26.28 0 0 1 249.29 174.66 A 28.19 28.19 0 0 1 231.69 217.14 A 28.46 28.46 0 0 1 195.62 246.73 A 26.41 26.41 0 0 1 150.00 255.78 A 25.56 25.56 0 0 1 103.96 247.60 A 28.70 28.70 0 0 1 69.79 215.97 A 26.15 26.15 0 0 1 47.19 175.47 A 26.70 26.70 0 0 1 47.39 128.58 A 26.00 26.00 0 0 1 68.04 86.64 A 27.03 27.03 0 0 1 105.97 60.58 A 29.22 29.22 0 0 1 150.00 47.01 Z" fill="#E7E36A"></path>
+          <g fill="#16161b"><ellipse cx="124" cy="162" rx="10" ry="13"></ellipse><ellipse cx="176" cy="162" rx="10" ry="13"></ellipse></g>
+          <path d="M138 192 Q150 201 162 192" fill="none" stroke="#16161b" stroke-width="5" stroke-linecap="round"></path>
+        </svg>
+        <div class="nd-footer-brand">
+          <span class="nd-footer-name" data-i18n="brand.name">나와드리</span>
+          <span class="nd-footer-tag" data-i18n="footer.tag">나의 소중한 여행 기록장</span>
+        </div>
+      </div>
+      <nav class="nd-footer-links">
+        <a href="#feat-plan" data-i18n="nav.features">기능</a><a href="#feat-split" data-i18n="nav.split">정산</a><a href="#feat-map" data-i18n="nav.map">추억 지도</a><a href="#feat-now" data-i18n="nav.now">추천</a><a href="#feat-goods" data-i18n="nav.goods">굿즈</a><a href="#cta" data-i18n="footer.contact">문의</a>
+      </nav>
+      <div class="nd-footer-copy" data-i18n="footer.copy">© 2026 나와드리 · 2026.08 출시</div>
+    </div>
+  </footer>
+
+</div>
+</div>
+<script src="./script.js"></script>
+</body>
+</html>
